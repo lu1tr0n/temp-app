@@ -42,7 +42,7 @@ http://localhost/temp-app/web/
 Se creo un comando que inserta datos de prueba en la base de datos, son para fines de testing.
 ~~~
 
-php yii temp/add -u=prueba -p=prueba -a=6
+php yii temp/add -u=prueba -p=prueba -a=6 -d=prueba -c=red
 ~~~
 
 **Opciones:**
@@ -50,6 +50,8 @@ php yii temp/add -u=prueba -p=prueba -a=6
 -u:     usuario
 -p:     contraseña
 -a:     Cantidad de registros a generar
+-d:     Nombre que llevara el registro
+-c:     Color que representara (green, red, purple)
 ~~~
 
 **Argumentos:**
