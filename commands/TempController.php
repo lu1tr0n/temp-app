@@ -37,6 +37,8 @@ class TempController extends Controller
      */
     public $username;
     public $password;
+    public $description;
+    public $color;
     public $howMany;
 
     /**
@@ -63,6 +65,8 @@ class TempController extends Controller
          */
         $user    = $this->username;
         $pass    = $this->password;
+        $desc    = (trim($this->description) != "") ? $this->description : 'probe';
+        $col     = (trim($this->color) != "") ? $this->color : 'red';
         $hMany   = (intval($this->howMany) > 0) ? intval($this->howMany) : intval($amount);
         $last_id = 0;
         $urlApi  = Yii::$app->params['urlApi'];
@@ -93,7 +97,7 @@ class TempController extends Controller
                 $request = $clientPost->createRequest()
                     ->setMethod('POST')
                     ->setUrl($urlApi.'/temp')
-                    ->setData(['name' => 'prueba'.$last_id++, 'color' => 'red']);
+                    ->setData(['name' => $desc.$last_id++, 'color' => $col]);
                 $request->headers->set('Authorization', 'Basic ' . base64_encode($user.":".$pass));
                 $response = $request->send();
                 if ($response->isOk) {
@@ -117,7 +121,7 @@ class TempController extends Controller
      * @return Array for options
      */ 
     public function options($actionID) {
-        return ['username', 'password', 'howMany'];
+        return ['username', 'password', 'description', 'color', 'howMany'];
     }
 
     /**
@@ -129,6 +133,6 @@ class TempController extends Controller
      * @return Array for arguments
      */ 
     public function optionAliases() {
-        return ['u' => 'username', 'p' => 'password', 'a' => 'howMany'];
+        return ['u' => 'username', 'p' => 'password', 'd' => 'description', 'c' => 'color', 'a' => 'howMany'];
     }    
 }
