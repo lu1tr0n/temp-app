@@ -4,7 +4,7 @@
  * @category   Commands
  * @package    TempController
  * @author     Luis Navarro <lu1tr0n>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  Copyright (C) 2019 Free Software Foundation
  * @license    https://www.gnu.org/licenses/gpl.txt GNU License 3.0
  * @version    1.0.0
  * @link       https://github.com/lu1tr0n/temp-app
