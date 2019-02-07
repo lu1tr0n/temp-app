@@ -40,6 +40,9 @@ $this->beginPage();
     </div>
     <!-- END -->
     <?php $this->beginBody() ?>
+    
+    <!-- Message -->
+
     <form id="formLogin" action="<?php //echo Url::to(['login'], true); ?>" method="POST" class="form-signin">
         <div class="text-center mb-4">
             <img class="mb-4" src="/img/login.svg" alt="" width="72" height="72">
@@ -55,22 +58,6 @@ $this->beginPage();
             <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Password</label>
         </div>
-
-        <?php if (Yii::$app->session->hasFlash('success')) {?>
-            <div class="alert alert-success alert-dismissable message-alert">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                <h4><i class="icon fa fa-check"></i>Saved!</h4>
-                <?= Yii::$app->session->getFlash('success') ?>
-            </div>
-        <?php } ?>
-
-        <?php if (Yii::$app->session->getFlash('error')){ ?>
-            <div class="alert alert-danger alert-dismissable message-alert">
-                <button aria-hidden="true" data-dismiss="alert" class="close" aria-label="Close" type="button">×</button>
-                <h4><i class="icon fa fa-check"></i>Incorrect!</h4>
-                <?= Yii::$app->session->getFlash('error') ?>
-            </div>
-        <?php } ?>
 
         <div class="checkbox mb-3">
             <label>

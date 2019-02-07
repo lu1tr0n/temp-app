@@ -63,7 +63,7 @@ $config = [
     /**
      * Define route main
      */
-    'defaultRoute' => 'site/dashboard',
+    'defaultRoute' => 'login/index',
 ];
 
 if (YII_ENV_DEV) {

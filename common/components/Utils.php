@@ -2,7 +2,8 @@
 namespace common\components;
 
 use Yii;
-use yii\helpers as YiiHelper;
+use yii\helpers;
+use yii\helpers\Url;
 
 class Utils {
 
@@ -18,7 +19,7 @@ class Utils {
         //Yii::$app->session->open();
         if (!(Yii::$app->session->isActive && Yii::$app->session->get('auth') != "")) {
             Yii::$app->session->destroy();
-            header('Location: /login/index');
+            header('Location: '.Url::to(['login/logout']));
         }
         //Yii::$app->session->close();
     }

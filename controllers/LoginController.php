@@ -92,7 +92,7 @@
                         Yii::$app->session->set('user-id', $response->data['user']['_id']);
                         Yii::$app->session->set('username', $response->data['user']['username']);
                         Yii::$app->session->set('auth', base64_encode("$username:$password"));
-                        return $this->redirect(['/site/dashboard']);
+                        return $this->redirect(['/site/profile']);
                     } else {
                         Yii::$app->session->setFlash('error', "Username or Password incorrect!.");
                         return $this->redirect(['/login/index']);
