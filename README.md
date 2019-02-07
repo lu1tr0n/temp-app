@@ -44,15 +44,17 @@ Se creo un comando que inserta datos de prueba en la base de datos, son para fin
 
 php yii temp/add -u=prueba -p=prueba -a=6
 ~~~
+
+**Opciones:**
+~~~
+-u:     usuario
+-p:     contraseña
+-a:     Cantidad de registros a generar
+~~~
+
 **Argumentos:**
 ~~~
 php yii temp/add -u=prueba -p=prueba <cantidad>
 ~~~
-**Opciones:**
-~~~
--u:	usuario
--p: contraseña
--a: Cantidad de registros a generar
 
-~~~
 > Proyecto aun en **desarrollo**
