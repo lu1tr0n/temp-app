@@ -28,7 +28,7 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
+            /*'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout'],
                 'rules' => [
@@ -38,13 +38,13 @@ class SiteController extends Controller
                         'roles' => ['@'],
                     ],
                 ],
-            ],
-            'verbs' => [
+            ],*/
+            /*'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
-            ],
+            ],*/
         ];
     }
 
@@ -89,12 +89,12 @@ class SiteController extends Controller
          */
         $urlApi = Yii::$app->params['urlApi'];
         $session = Yii::$app->session;
-        // Utils::as_begin_session();
+        Utils::as_begin_session();
 
         try {
             
-            $user_id = $session->get('user-id');
-            $username = $session->get('username');
+            $user_id    = $session->get('user-id');
+            $username   = $session->get('username');
             $basic_auth = $session->get('auth');
 
             $client = new Client(['baseUrl' => $urlApi.'/user/'.$user_id]);
@@ -119,4 +119,10 @@ class SiteController extends Controller
             return $this->redirect(['/login/index']);
         }        
     }
+
+    public function actionUpdateprofile() {
+        if (Yii::$app->request->post()) {
+            print_r(Yii::$app->request->post());die();
+        }
+    }     
 }
