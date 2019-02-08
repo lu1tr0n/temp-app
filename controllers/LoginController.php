@@ -36,7 +36,7 @@
         */
        public function behaviors() {
            return [
-               'access' => [
+               /*'access' => [
                    'class' => AccessControl::className(),
                    'only' => ['logout'],
                    'rules' => [
@@ -46,13 +46,13 @@
                            'roles' => ['@'],
                        ],
                    ],
-               ],
-               'verbs' => [
+               ],*/
+               /*'verbs' => [
                    'class' => VerbFilter::className(),
                    'actions' => [
                        'logout' => ['post'],
                    ],
-               ],
+               ],*/
            ];
        }
        /**
@@ -74,7 +74,7 @@
              * Define variable
              */
             $urlApi = Yii::$app->params['urlApi'];
-            Utils::as_begin_session();
+            //Utils::as_begin_session();
             Yii::$app->session->setFlash('error', "Username or Password incorrect!.");
             if (Yii::$app->request->post()) {
                 Yii::$app->session->open();
@@ -100,7 +100,7 @@
                     /**
                      * Finish 
                      */
-                    Yii::$app->session->close();
+                    //Yii::$app->session->close();
                     die();
                 } catch(\yii\httpclient\Exception $exception) {
                     Yii::$app->session->setFlash('error', "Username or Password incorrect!.");
@@ -117,9 +117,8 @@
          * @return Response
          */
         public function actionLogout() {
-            //Utils::end_session();
-            //$this->redirect(['/']);
-            //return $this->goHome();
-            header('Location: /login/index');
-        }     
+            Utils::end_session();
+            // Yii::$app->urlManager->createUrl('/')
+            $this->redirect(['/']);
+        } 
     }
