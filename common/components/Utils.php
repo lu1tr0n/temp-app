@@ -15,13 +15,14 @@ class Utils {
      * @author Luis Navarro <lu1tr0n>
      * @return None
      */    
-    public static function as_begin_session() {
-        //Yii::$app->session->open();
-        if (!(Yii::$app->session->isActive && Yii::$app->session->get('auth') != "")) {
-            Yii::$app->session->destroy();
-            header('Location: '.Url::to(['login/logout']));
+    public function as_begin_session() {
+        Yii::$app->session->open();
+        if (!(Yii::$app->session->isActive && trim(Yii::$app->session->get('auth')) != "")) {
+            self::end_session();
+            header('Location: '.Yii::$app->urlManager->createUrl('/'));
+            die();
         }
-        //Yii::$app->session->close();
+        Yii::$app->session->close();
     }
 
     /**
@@ -32,7 +33,10 @@ class Utils {
      * @author Luis Navarro <lu1tr0n>
      * @return None
      */
-    public static function end_session() {
+    public function end_session() {
+        Yii::$app->session->remove('user-id');
+        Yii::$app->session->remove('username');
+        Yii::$app->session->remove('auth');
         Yii::$app->session->destroy();
     }
 
