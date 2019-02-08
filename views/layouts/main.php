@@ -22,6 +22,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
@@ -33,7 +34,7 @@ AppAsset::register($this);
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="<?php echo Url::to(['login/logout'], true); ?>">Sign out</a>
+      <a class="nav-link" href="<?php //echo Url::to(['site/logout'], true); ?>">Sign out</a>
     </li>
   </ul>
 </nav>
