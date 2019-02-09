@@ -22,6 +22,7 @@ Instalación
  - Abrir una terminal, en la ubicación del proyecto
  - Ejecutar el comando `composer install`
  - En el archivo config\params.php, se debe cambiar la url por la propia.
+ - Configurar la dirección a la cual se conectara la aplicación web en el archivo ´ config>params.php
  
 
 ## Ejecutar el proyecto
